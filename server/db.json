@@ -1,0 +1,64 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Design"
+    },
+    {
+      "id": 2,
+      "name": "Brending"
+    },
+    {
+      "id": 3,
+      "name": "illustration"
+    },
+    {
+      "id": 4,
+      "name": "Motion"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "sofa",
+      "category_id": 1,
+      "img": "prod.jpg"
+    },
+    {
+      "id": 2,
+      "name": "keyBoard",
+      "category_id": 2,
+      "img": "cross.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Work Media",
+      "category_id": 3,
+      "img": "comp.jpg"
+    },
+    {
+      "id": 4,
+      "name": "DDDone",
+      "category_id": 4,
+      "img": "jeans.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Abstract",
+      "category_id": 1,
+      "img": "parts.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Architect",
+      "category_id": 4,
+      "img": "details.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Architect",
+      "category_id": 3,
+      "img": "garden.jpg"
+    }
+  ]
+}

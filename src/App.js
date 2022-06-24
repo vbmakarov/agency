@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useEffect, useState } from "react";
+import "./App.scss";
+import Header from "./components/header/Header";
+import Main from "./components/main/Main";
+import Footer from "./components/footer/Footer";
+import { isMobile } from "./utils";
+
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
+  const [isMobileDevice, setDevice] = useState({
+    tablet: false,
+    mobile: false,
+  });
+
+  const handleSize = useCallback(() => {
+    const width = window.innerWidth;
+    const result = isMobile(width);
+    setDevice(() => {
+      return result;
+    });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSize);
+    setDevice(() => {
+      return isMobile(window.innerWidth);
+    });
+    return () => window.removeEventListener("resize", handleSize);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="wrapper">
+        <Header isMobileDevice={isMobileDevice} />
+        <Main isMobileDevice={isMobileDevice} />
+        <Footer />
+      </div>
+    </QueryClientProvider>
   );
 }
 
